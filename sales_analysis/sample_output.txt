@@ -1,0 +1,242 @@
+root
+ |-- Region: string (nullable = true)
+ |-- Country: string (nullable = true)
+ |-- Item Type: string (nullable = true)
+ |-- Sales Channel: string (nullable = true)
+ |-- Order Priority: string (nullable = true)
+ |-- Order Date: string (nullable = true)
+ |-- Order ID: integer (nullable = true)
+ |-- Ship Date: string (nullable = true)
+ |-- Units Sold: integer (nullable = true)
+ |-- Unit Price: double (nullable = true)
+ |-- Unit Cost: double (nullable = true)
+ |-- Total Revenue: double (nullable = true)
+ |-- Total Cost: double (nullable = true)
+ |-- Total Profit: double (nullable = true)
+
++---------------------------------+---------------------+---------------+-------------+--------------+----------+---------+---------+----------+----------+---------+-------------+----------+------------+
+|Region                           |Country              |Item Type      |Sales Channel|Order Priority|Order Date|Order ID |Ship Date|Units Sold|Unit Price|Unit Cost|Total Revenue|Total Cost|Total Profit|
++---------------------------------+---------------------+---------------+-------------+--------------+----------+---------+---------+----------+----------+---------+-------------+----------+------------+
+|Australia and Oceania            |Tuvalu               |Baby Food      |Offline      |H             |5/28/2010 |669165933|6/27/2010|9925      |255.28    |159.42   |2533654.0    |1582243.5 |951410.5    |
+|Central America and the Caribbean|Grenada              |Cereal         |Online       |C             |8/22/2012 |963881480|9/15/2012|2804      |205.7     |117.11   |576782.8     |328376.44 |248406.36   |
+|Europe                           |Russia               |Office Supplies|Offline      |L             |5/2/2014  |341417157|5/8/2014 |1779      |651.21    |524.96   |1158502.59   |933903.84 |224598.75   |
+|Sub-Saharan Africa               |Sao Tome and Principe|Fruits         |Online       |C             |6/20/2014 |514321792|7/5/2014 |8102      |9.33      |6.92     |75591.66     |56065.84  |19525.82    |
+|Sub-Saharan Africa               |Rwanda               |Office Supplies|Offline      |L             |2/1/2013  |115456712|2/6/2013 |5062      |651.21    |524.96   |3296425.02   |2657347.52|639077.5    |
++---------------------------------+---------------------+---------------+-------------+--------------+----------+---------+---------+----------+----------+---------+-------------+----------+------------+
+only showing top 5 rows
++---------------------------------+-------------+
+|Region                           |Total_Profit |
++---------------------------------+-------------+
+|Sub-Saharan Africa               |1.21832114E7 |
+|Europe                           |1.108293863E7|
+|Asia                             |6113845.87   |
+|Middle East and North Africa     |5761191.86   |
+|Australia and Oceania            |4722160.03   |
+|Central America and the Caribbean|2846907.85   |
+|North America                    |1457942.76   |
++---------------------------------+-------------+
+
+Region with the highest total profit: Sub-Saharan Africa
++----------+------------+
+|Country   |Total_Profit|
++----------+------------+
+|Djibouti  |2425317.87  |
+|Rwanda    |1417493.49  |
+|The Gambia|1385883.27  |
+|Mozambique|889472.91   |
+|Cameroon  |781681.3    |
++----------+------------+
+only showing top 5 rows
+Country with the highest profit in Sub-Saharan Africa: Djibouti
++------------+----------+-------------+
+|window_start|window_end|orders_in_72h|
++------------+----------+-------------+
+|  2012-02-16|2012-02-18|            2|
+|  2012-06-07|2012-06-09|            2|
+|  2012-09-17|2012-09-19|            2|
+|  2013-10-11|2013-10-13|            2|
+|  2014-10-13|2014-10-15|            2|
+|  2015-07-30|2015-08-01|            2|
+|  2017-01-13|2017-01-15|            2|
+|  2017-05-20|2017-05-22|            2|
+|  2010-02-02|2010-02-04|            1|
+|  2010-02-06|2010-02-08|            1|
++------------+----------+-------------+
+only showing top 10 rows
++------------+----------+-------------+
+|window_start|window_end|orders_in_72h|
++------------+----------+-------------+
+|  2012-02-16|2012-02-18|            2|
+|  2012-06-07|2012-06-09|            2|
+|  2012-09-17|2012-09-19|            2|
+|  2013-10-11|2013-10-13|            2|
+|  2014-10-13|2014-10-15|            2|
+|  2015-07-30|2015-08-01|            2|
+|  2017-01-13|2017-01-15|            2|
+|  2017-05-20|2017-05-22|            2|
++------------+----------+-------------+
+
+Highest number of orders in any 72-hour interval: 2
++----------+--------------+----------+
+|month_name|Avg_Units_Sold|Num_Orders|
++----------+--------------+----------+
+|July      |6350.08       |12        |
+|September |6020.2        |5         |
+|November  |5917.89       |9         |
+|May       |5786.45       |11        |
+|February  |5467.62       |13        |
+|January   |5106.0        |7         |
+|October   |5042.91       |11        |
+|April     |4964.44       |9         |
+|August    |4312.75       |4         |
+|March     |3624.25       |4         |
+|June      |3489.3        |10        |
+|December  |3208.6        |5         |
++----------+--------------+----------+
+
+Month with the highest average units sold: July (average of 6350.08 units per order)
++---------+---------------+----------+---------+----------+
+| Order ID|      Item Type|Unit Price|Unit Cost|Margin_Pct|
++---------+---------------+----------+---------+----------+
+|669165933|      Baby Food|    255.28|   159.42|     37.55|
+|963881480|         Cereal|     205.7|   117.11|     43.07|
+|341417157|Office Supplies|    651.21|   524.96|     19.39|
+|514321792|         Fruits|      9.33|     6.92|     25.83|
+|115456712|Office Supplies|    651.21|   524.96|     19.39|
++---------+---------------+----------+---------+----------+
+only showing top 5 rows
+Lowest margin %: 13.56
+Highest margin %: 67.2
+Lowest margin occurs in:
++---------+----------+---------+----------+----------+
+|Item Type|Unit Price|Unit Cost|Margin_Pct|Num_Orders|
++---------+----------+---------+----------+----------+
+|Meat     |421.89    |364.69   |13.56     |2         |
++---------+----------+---------+----------+----------+
+
+Highest margin occurs in:
++---------+----------+---------+----------+----------+
+|Item Type|Unit Price|Unit Cost|Margin_Pct|Num_Orders|
++---------+----------+---------+----------+----------+
+|Clothes  |109.28    |35.84    |67.2      |13        |
++---------+----------+---------+----------+----------+
+
++---------------+--------------+--------------+
+|Item Type      |Min_Margin_Pct|Max_Margin_Pct|
++---------------+--------------+--------------+
+|Meat           |13.56         |13.56         |
+|Office Supplies|19.39         |19.39         |
+|Household      |24.8          |24.8          |
+|Fruits         |25.83         |25.83         |
+|Personal Care  |30.66         |30.66         |
+|Beverages      |33.0          |33.0          |
+|Snacks         |36.14         |36.14         |
+|Baby Food      |37.55         |37.55         |
+|Cosmetics      |39.77         |39.77         |
+|Vegetables     |40.98         |40.98         |
+|Cereal         |43.07         |43.07         |
+|Clothes        |67.2          |67.2          |
++---------------+--------------+--------------+
+
+Top 3 highest-value orders for item type: Cosmetics
++---------+---------+----------------------------+--------+----------+----------+-------------+
+|Order ID |Item Type|Region                      |Country |Order Date|Units Sold|Total Revenue|
++---------+---------+----------------------------+--------+----------+----------+-------------+
+|231145322|Cosmetics|Middle East and North Africa|Pakistan|7/5/2013  |9892      |4324782.4    |
+|670854651|Cosmetics|Australia and Oceania       |Samoa   |7/20/2013 |9654      |4220728.8    |
+|331438481|Cosmetics|Europe                      |Iceland |12/31/2016|8867      |3876652.4    |
++---------+---------+----------------------------+--------+----------+----------+-------------+
+
++---------------+----+---------+------------------------------+-------------+
+|Item Type      |Rank|Order ID |Country                       |Total Revenue|
++---------------+----+---------+------------------------------+-------------+
+|Baby Food      |1   |669165933|Tuvalu                        |2533654.0    |
+|Baby Food      |2   |688288152|Monaco                        |2198981.92   |
+|Baby Food      |3   |819028031|Norway                        |1901836.0    |
+|Beverages      |1   |240470397|Australia                     |445508.05    |
+|Beverages      |2   |217221009|Federated States of Micronesia|445033.55    |
+|Beverages      |3   |180283772|Sao Tome and Principe         |418936.05    |
+|Cereal         |1   |555990016|Djibouti                      |1780539.2    |
+|Cereal         |2   |616607081|Senegal                       |1356180.1    |
+|Cereal         |3   |844530045|Saudi Arabia                  |835759.1     |
+|Clothes        |1   |647876489|Fiji                          |1082418.4    |
+|Clothes        |2   |187310731|Bangladesh                    |902980.64    |
+|Clothes        |3   |663110148|Lebanon                       |861563.52    |
+|Cosmetics      |1   |231145322|Pakistan                      |4324782.4    |
+|Cosmetics      |2   |670854651|Samoa                         |4220728.8    |
+|Cosmetics      |3   |331438481|Iceland                       |3876652.4    |
+|Fruits         |1   |918419539|Lesotho                       |89623.98     |
+|Fruits         |2   |514321792|Sao Tome and Principe         |75591.66     |
+|Fruits         |3   |508980977|Sao Tome and Principe         |71253.21     |
+|Household      |1   |522840487|Honduras                      |5997054.98   |
+|Household      |2   |177713572|Myanmar                       |5513227.5    |
+|Household      |3   |986435210|Mexico                        |4647149.58   |
+|Meat           |1   |322067916|East Timor                    |2492526.12   |
+|Meat           |2   |825304400|The Gambia                    |2011149.63   |
+|Office Supplies|1   |166460740|Lithuania                     |5396577.27   |
+|Office Supplies|2   |320009267|Brunei                        |4368316.68   |
+|Office Supplies|3   |177636754|Cameroon                      |3593376.78   |
+|Personal Care  |1   |228944623|Gabon                         |707454.88    |
+|Personal Care  |2   |430915820|Mexico                        |524870.06    |
+|Personal Care  |3   |456767165|Costa Rica                    |523807.57    |
+|Snacks         |1   |756274640|Djibouti                      |1117953.66   |
+|Snacks         |2   |122583663|Zambia                        |623289.3     |
+|Snacks         |3   |795490682|Honduras                      |339490.5     |
+|Vegetables     |1   |871543967|Burkina Faso                  |1245112.92   |
+|Vegetables     |2   |827844560|Kenya                         |994765.42    |
+|Vegetables     |3   |789176547|Laos                          |574951.92    |
++---------------+----+---------+------------------------------+-------------+
+
++----+--------------+----------+
+|Year|Annual_Revenue|Num_Orders|
++----+--------------+----------+
+|2010|   19186024.92|        10|
+|2011|   11129166.07|        12|
+|2012|   31898644.52|        22|
+|2013|   20330448.66|        12|
+|2014|   16630214.43|        15|
+|2015|   12427982.86|        11|
+|2016|   12372867.22|        10|
+|2017|   13373419.63|         8|
++----+--------------+----------+
+
++----+--------------+---------------------+--------------+
+|Year|Annual_Revenue|Previous_Year_Revenue|YoY_Growth_Pct|
++----+--------------+---------------------+--------------+
+|2010|19186024.92   |NULL                 |NULL          |
+|2011|11129166.07   |19186024.92          |-41.99        |
+|2012|31898644.52   |11129166.07          |186.62        |
+|2013|20330448.66   |31898644.52          |-36.27        |
+|2014|16630214.43   |20330448.66          |-18.20        |
+|2015|12427982.86   |16630214.43          |-25.27        |
+|2016|12372867.22   |12427982.86          |-0.44         |
+|2017|13373419.63   |12372867.22          |8.09          |
++----+--------------+---------------------+--------------+
+
++---------------------+---------------+------------+
+|Region               |Item Type      |Total_Profit|
++---------------------+---------------+------------+
+|Asia                 |Household      |2002018.40  |
+|Asia                 |Office Supplies|1479397.50  |
+|Asia                 |Cosmetics      |1208744.24  |
+|Asia                 |Clothes        |1042333.92  |
+|Asia                 |Vegetables     |243429.28   |
+|Asia                 |Personal Care  |122819.06   |
+|Asia                 |Fruits         |15103.47    |
+|Australia and Oceania|Cosmetics      |1678540.98  |
+|Australia and Oceania|Baby Food      |1236498.14  |
+|Australia and Oceania|Clothes        |727423.20   |
++---------------------+---------------+------------+
+only showing top 10 rows
++---------------------------------+---------------+------------+--------------+-----------+
+|Region                           |Item Type      |Total_Profit|Rank_In_Region|Global_Rank|
++---------------------------------+---------------+------------+--------------+-----------+
+|Europe                           |Cosmetics      |5233487.00  |1             |1          |
+|Middle East and North Africa     |Cosmetics      |4105940.05  |1             |2          |
+|Sub-Saharan Africa               |Office Supplies|2051688.75  |1             |4          |
+|Asia                             |Household      |2002018.40  |1             |6          |
+|Australia and Oceania            |Cosmetics      |1678540.98  |1             |9          |
+|Central America and the Caribbean|Household      |1487261.02  |1             |11         |
+|North America                    |Household      |1152486.42  |1             |16         |
++---------------------------------+---------------+------------+--------------+-----------+
+
